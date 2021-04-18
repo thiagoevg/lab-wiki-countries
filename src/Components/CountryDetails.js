@@ -9,7 +9,7 @@ function CountryDetails(props) {
     return country.cca3 === props.match.params.cca3;
   });
 
-  function changeName(initials) {
+  function findCountryByInitials(initials) {
     const country = countries.find((country) => {
       return country.cca3 === initials;
     });
@@ -39,7 +39,8 @@ function CountryDetails(props) {
               <td>
                 <ul style={{ listStyleType: 'none' }}>
                   {countryFound.borders.map((initials) => {
-                    const commonName = changeName(initials).name.common;
+                    const commonName = findCountryByInitials(initials).name
+                      .common;
                     return (
                       <li key={initials}>
                         <Link to={`/${initials}`}>{commonName}</Link>
