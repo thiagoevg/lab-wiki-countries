@@ -40,7 +40,7 @@ function CountryDetails(props) {
                 {countryFound.borders.map((initials) => {
                   const commonName = changeName(initials).name.common;
                   return (
-                    <li>
+                    <li key={initials}>
                       <Link to={`/${initials}`}>{commonName}</Link>
                     </li>
                   );
